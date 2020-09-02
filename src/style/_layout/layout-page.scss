@@ -1,0 +1,297 @@
+
+// Peoni / Header image
+$size-header-height:        140px;
+
+
+// Content Container
+$size-card:                 500px;
+$card-text:                 bridechalk-sans;
+
+// Navigation
+$nav-text:                  jandascript;
+
+// Polaroid
+$size-polaroid-height:      50vh;
+$size-polaroid-m:           70vw;
+$color-background-polaroid: rgba(255, 255, 255, 1);
+$polaroid-text:             blackpen;
+
+// Title:
+$title-text:                bridechalk-script; // chalk;
+$card-header-text:          jandascript;
+
+@include font-face(jandascript, #{$pathToFonts}jandascript, 700, normal, ttf);
+@include font-face(blackpen, #{$pathToFonts}blackpen, 700, normal, otf);
+@include font-face(chalk, #{$pathToFonts}chalk, 500, normal, ttf);
+@include font-face(bridechalk-sans, #{$pathToFonts}bridechalk-sans, 500, normal, otf);
+@include font-face(bridechalk-script, #{$pathToFonts}bridechalk-script, 500, normal, otf);
+@include font-face(bridechalk-serif, #{$pathToFonts}bridechalk-serif, 500, normal, otf);
+@include font-face(angelina-vintage, #{$pathToFonts}angelina-vintage, 500, normal, otf);
+@include font-face(angelina-vintage, #{$pathToFonts}ornaments, 500, normal, otf);
+
+
+nav {
+    z-index: 2;
+    position: fixed;
+    display: flex;
+    top: 0;
+    bottom: 0;
+    left: $size-root-half;
+
+    @include breakpoint(mobile) {
+        width: $size-icon-large;
+        display: none;
+    }
+
+    & ul {
+        position: relative;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: $size-root-full;
+        align-self: center;
+        justify-content: center;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        &:before {
+            z-index: -1;
+            content: '';
+            border-left: 2px solid $color-nav-icon;
+            display: block;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: calc(#{$size-icon-small} / 2 - 1px);
+
+            @include breakpoint(mobile) {
+                left: calc(#{$size-icon-large} / 2 - 1px);
+            }
+        }
+    }
+
+    li {
+    }
+
+    a {
+        display: flex;
+        color: $color-nav-text;
+        font-family: $nav-text;
+        font-size: 1rem;
+        text-decoration: none;
+
+        @include breakpoint(mobile) {
+            font-size: 0px;
+        }
+
+        &:before {
+            content: '';
+            display: block;
+            width: $size-icon-small;
+            height: $size-icon-small;
+            margin: 0 $size-root-half 0 0;
+            background-color: $color-nav-icon;
+            border-radius: 50px;
+            cursor: pointer;
+
+            @include breakpoint(mobile) {
+                width: $size-icon-large;
+                height: $size-icon-large;
+            }
+        }
+
+        &:hover,
+        &:focus {}
+        &:active {}
+
+        &.current {
+            opacity: $alpha-half;
+            box-shadow: 0px 0px 5px 0px $color-transparent;
+        }
+    }
+}
+
+main {
+    height: 100%;
+}
+
+header {
+    z-index: 1;
+    position: fixed;
+    width: 100%;
+    height: $size-header-height;
+    background-attachment: fixed;
+    background-image: url(#{$pathToImages}peoni.png);
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    @include breakpoint(mobile) {
+        background-size: 200%;
+    }
+}
+
+section {
+    position: relative;
+    height: 100%;
+    scroll-snap-type: y mandatory;
+    animation: fadein 3s;
+
+    &:nth-of-type() {
+        // affects all slides
+        position: relative;
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+        background-repeat: no-repeat;
+    }
+
+    // &:nth-of-type(1) {
+    //     background-image: url(#{$pathToImages}chalkboard.jpg);
+    // }
+
+    // &:nth-of-type(2) {
+    //     background-image: url('https://visualhunt.com/photos/xl/2/gps-in-car-interior.jpg');
+    //     // background-color: red;
+    // }
+}
+
+.home {
+    display: grid;
+    grid-gap: $size-root-quarter;
+    align-content: center;
+    width: 100%;
+    max-width: $size-card;
+    height: 100%;
+    margin: auto;
+    padding: $size-root-full;
+    text-shadow: 0px 2px 3px $color-black-3quarter;
+    background-image: url(#{$pathToImages}homev4.png);
+    background-size: contain;
+    background-position: center top 20%;
+    background-repeat: no-repeat;
+
+    //offest for nav
+    @include breakpoint(mobile) {
+        // padding: $size-root-full $size-root-full $size-root-full 3rem;
+        background-position: center top 5%;
+
+    }
+
+    &--header {
+        justify-self: center;
+        font-family: $title-text;
+        font-size: 3.5rem;
+        color: #d6d963;
+        letter-spacing: 2px;
+
+        transform: rotate(-20deg);
+        text-align: center;
+        line-height: 6vh;
+        height: 49vh;
+        margin-left: 5vw;
+        position: absolute;
+        left: 43%;
+        top: 25%;
+        @include breakpoint(mobile) {
+            font-size: 3rem;
+            top: 19%;
+            left: 40%;
+            line-height: 7vh;
+        }
+    }
+}
+
+.vows {
+    display: grid;
+    grid-gap: $size-root-quarter;
+    align-content: center;
+    width: 100%;
+    max-width: $size-card;
+    height: 100%;
+    margin: auto;
+    padding: $size-root-full;
+    background-image: url(#{$pathToImages}vows-editv5.png);
+    background-size: contain;
+    background-position: center top 90%;
+    background-repeat: no-repeat;
+}
+
+.vows a{
+   height: 100%;
+   width: 500px; 
+}
+
+.card {
+    display: grid;
+    grid-template-areas: 'cardimg' 'cardhead' 'cardcontent';
+    grid-gap: $size-root-quarter;
+    align-content: center;
+    width: 100%;
+    max-width: $size-card;
+    height: 100%;
+    margin: auto;
+    padding: $size-root-full;
+    text-shadow: 0px 2px 3px $color-black-3quarter;
+
+    //offest for nav
+   /*@include breakpoint(mobile) {
+        padding: $size-root-full $size-root-full $size-root-full 3rem;
+    }*/
+
+    &--head {
+        grid-area: cardhead;
+        font-family: $card-header-text;
+        font-size: 2.5rem;
+        color: #fad48b;
+        letter-spacing: 2px;
+    }
+
+    &--content {
+        grid-area: cardcontent;
+        line-height: $base-line-height;
+        color: #94c0cc;
+        font-family: $card-text;
+    }
+}
+
+.polaroid {
+    grid-area: cardimg;
+    margin: 0 auto $size-root-full auto;
+    padding: $size-root-full;
+    background: $color-background-polaroid;
+    box-shadow: 0px 0px 5px 0px $color-black;
+
+    &--image {
+        max-width: 100%;
+        max-height: $size-polaroid-height;
+
+
+        @include breakpoint(mobile) {
+            max-width: $size-polaroid-m;
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    &--text {
+        font-family: $polaroid-text;
+        font-size: 2rem;
+        color: $color-text-dark;
+        text-shadow: none;
+        text-align: right;
+        padding: $size-root-full $size-root-full 0 $size-root-full;
+    }
+}
+
+// rotate the polaroid images
+section:nth-of-type(2n+1) .card .polaroid {
+  transform: rotate(2deg);
+}
+
+section:nth-of-type(2n+2) .card .polaroid {
+  transform: rotate(-2deg);
+}

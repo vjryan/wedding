@@ -1,0 +1,38 @@
+// new implementation
+@mixin radioCheckStyle (
+    $type:default,
+    $rcs-label:     $color-checkbox-label,
+    $rcs-size:      $size-icon-small,
+    $rcs-bsize:     2px,
+    $rcs-outer:     $color-checkbox-border,
+    $rcs-inner:     $rcs-outer, // change to and update $color-checkbox-background,
+    $rcs-radius:    $size-border-radius,
+    $rcs-outer-ch:  $rcs-outer,
+    $rcs-font-size: .8rem
+) {
+
+    @if $type == default {
+
+        label {
+            font-size: $rcs-font-size;
+            color: $rcs-label; // $color-text-light;
+            cursor: pointer;
+        }
+
+        & input[type="checkbox"] {
+            @include prefix(appearance, none, webkit ms);
+            min-width: $rcs-size;
+            height: $rcs-size;
+            padding: $rcs-bsize;
+            border: $rcs-bsize solid $rcs-outer;
+            border-radius: $rcs-radius;
+            transition: all .25s;
+        }
+
+        & input[type="checkbox"]:checked {
+            background-clip: content-box;
+            background-color: $rcs-inner;
+            border-color: $rcs-outer-ch;
+        }
+    }
+}

@@ -1,0 +1,46 @@
+@mixin buttonStyle(
+    $type:  primary,
+    $fg:    $color-button-fg,
+    $fg-h:  $color-button-fg-h,
+    $bg:    $color-button-bg,
+    $bg-h:  $color-button-bg-h,
+    $bg-f:  $color-button-bg-f,
+    $bc:    $color-button-border,
+    $bc-h:  $color-button-border-h,
+    $bs:    1px,
+    $bst:   solid,
+    $br:    $size-border-radius,
+    $ff:    $base-font-family,
+    $fs:    $size-root-full,
+    $fw:    $base-font-weight-light
+    ) {
+
+        // solid with outline on hover
+        @if $type == primary {
+            color: $fg;
+            background: $bg;
+            border: $bs $bst $bc;
+            border-radius: $br;
+            cursor: pointer;
+
+            &:hover {
+                color: $fg-h;
+                background: $bg-h;
+                border: $bs $bst $bc-h;
+            }
+
+            &:focus,
+            &:active {
+                color: $fg;
+                background: $bg-f;
+            }
+
+            &.disabled {
+                color: $fg;
+                background: $bg;
+                border: $bs $bst $bc;
+                opacity: $alpha-3quarter;
+                cursor: default;
+            }
+        }
+    }

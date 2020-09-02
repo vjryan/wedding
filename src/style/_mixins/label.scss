@@ -1,0 +1,28 @@
+// label
+@mixin inputLabel(
+    $gridcol: 25% 1fr,
+    $gridrow: 1,
+    $gridgap: .25rem,
+    $iconpos: 0,
+    $labelpos: -1
+) {
+    // implement grid
+    display: grid;
+    grid-template-columns: $gridcol;
+    grid-template-rows: $gridrow;
+    grid-gap: $gridgap;
+    align-items: center;
+    font-size: .9rem;
+    font-weight: $base-font-weight-heavy;
+    color: $color-input-label;
+
+    i {
+        order: $iconpos;
+        display: none;
+    }
+
+    > label {
+        order: $labelpos;
+        font-family: $base-font-family;
+    }
+}

@@ -1,0 +1,77 @@
+//input
+@mixin input (
+    $type: primary,
+    $grow: 1,
+    $shrink: 1,
+    $flex: 100%,
+    $height: null
+) {
+
+    @if $type == primary {
+        display: flex;
+        align-self: center;
+        justify-content: center;
+        flex: $grow $shrink $flex;
+        width: $flex;
+        height: $height;
+        min-height: $height;
+        padding: $size-root-half;
+        // disable moz, safari & ie defaults - auto prefixer will supply browser support
+        @include prefix(appearance, none, webkit ms);
+        box-shadow: none; // clear boxshadow on moz
+    }
+}
+
+// style
+@mixin inputStyle (
+    $type: primary,
+    $fg: $color-input-foreground,
+    $bg: $color-input-background,
+    $bc: $color-input-border,
+    $phc: $color-input-placeholder,
+    $bs: 1px,
+    $bst: solid,
+    $br: $size-border-radius,
+    $pad: 0 $size-root-quarter,
+    $ff: $base-font-family,
+    $fs: $size-root-full,
+    $fw: $base-font-weight-light,
+    $lh: $size-root-2x
+    ) {
+
+    @if $type == primary {
+        padding: $pad;
+        color: $fg;
+        font-family: $ff;
+        font-size: $fs;
+        font-weight: $fw;
+        line-height: $lh;
+        background-color: $bg;
+        border: $bs $bst;
+        border-color: $bc;
+        border-radius: $br;
+        resize: none;
+        cursor: pointer;
+
+        &::placeholder {
+            color: $phc;
+        }
+    }
+
+    @if $type == disabled {
+        padding: $pad;
+        color: $fg;
+        font-family: $ff;
+        font-size: $fs;
+        font-weight: $fw;
+        line-height: $lh;
+        background-color: $bg;
+        border: $bs $bst;
+        border-color: $bc;
+        border-radius: $br;
+        opacity: 1;
+        background: none;
+        border: none;
+        cursor: default;
+    }
+}

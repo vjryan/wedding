@@ -1,0 +1,303 @@
+@-webkit-keyframes fadein {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+@keyframes fadein {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+html,
+body {
+  font-family: sans-serif;
+  color: white;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  -webkit-text-size-adjust: 100%;
+  background-attachment: fixed;
+  background-size: cover !important;
+  background-position: center;
+  background-blend-mode: screen;
+  background-image: url(src/static/images/chalkboard.jpg);
+  background-color: black;
+  scroll-behavior: smooth; }
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-font-smoothing: subpixel-antialiased !important; }
+  *:after, *:before {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box; }
+
+@font-face {
+  font-family: "jandascript";
+  font-style: normal;
+  font-weight: 700;
+  src: url(src/static/fonts/jandascript.ttf) format("truetype"); }
+
+@font-face {
+  font-family: "blackpen";
+  font-style: normal;
+  font-weight: 700;
+  src: url(src/static/fonts/blackpen.otf) format("opentype"); }
+
+@font-face {
+  font-family: "chalk";
+  font-style: normal;
+  font-weight: 500;
+  src: url(src/static/fonts/chalk.ttf) format("truetype"); }
+
+@font-face {
+  font-family: "bridechalk-sans";
+  font-style: normal;
+  font-weight: 500;
+  src: url(src/static/fonts/bridechalk-sans.otf) format("opentype"); }
+
+@font-face {
+  font-family: "bridechalk-script";
+  font-style: normal;
+  font-weight: 500;
+  src: url(src/static/fonts/bridechalk-script.otf) format("opentype"); }
+
+@font-face {
+  font-family: "bridechalk-serif";
+  font-style: normal;
+  font-weight: 500;
+  src: url(src/static/fonts/bridechalk-serif.otf) format("opentype"); }
+
+@font-face {
+  font-family: "angelina-vintage";
+  font-style: normal;
+  font-weight: 500;
+  src: url(src/static/fonts/angelina-vintage.otf) format("opentype"); }
+
+@font-face {
+  font-family: "angelina-vintage";
+  font-style: normal;
+  font-weight: 500;
+  src: url(src/static/fonts/ornaments.otf) format("opentype"); }
+
+nav {
+  z-index: 2;
+  position: fixed;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  top: 0;
+  bottom: 0;
+  left: 0.5rem; }
+  @media screen and (min-width: 0px) and (max-width: 600px) {
+    nav {
+      width: 24px;
+      display: none; } }
+  nav ul {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 1rem;
+    align-self: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    margin: 0;
+    padding: 0;
+    list-style: none; }
+    nav ul:before {
+      z-index: -1;
+      content: '';
+      border-left: 2px solid #fad48b;
+      display: block;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: calc(12px / 2 - 1px); }
+      @media screen and (min-width: 0px) and (max-width: 600px) {
+        nav ul:before {
+          left: calc(24px / 2 - 1px); } }
+  nav a {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    color: #fad48b;
+    font-family: jandascript;
+    font-size: 1rem;
+    text-decoration: none; }
+    @media screen and (min-width: 0px) and (max-width: 600px) {
+      nav a {
+        font-size: 0px; } }
+    nav a:before {
+      content: '';
+      display: block;
+      width: 12px;
+      height: 12px;
+      margin: 0 0.5rem 0 0;
+      background-color: #fad48b;
+      border-radius: 50px;
+      cursor: pointer; }
+      @media screen and (min-width: 0px) and (max-width: 600px) {
+        nav a:before {
+          width: 24px;
+          height: 24px; } }
+    nav a.current {
+      opacity: 0.5;
+      -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0);
+              box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0); }
+
+main {
+  height: 100%; }
+
+header {
+  z-index: 1;
+  position: fixed;
+  width: 100%;
+  height: 140px;
+  background-attachment: fixed;
+  background-image: url(src/static/images/peoni.png);
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: contain; }
+  @media screen and (min-width: 0px) and (max-width: 600px) {
+    header {
+      background-size: 200%; } }
+
+section {
+  position: relative;
+  height: 100%;
+  -ms-scroll-snap-type: y mandatory;
+      scroll-snap-type: y mandatory;
+  -webkit-animation: fadein 3s;
+          animation: fadein 3s; }
+  section:nth-of-type() {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    background-repeat: no-repeat; }
+
+.home {
+  display: grid;
+  grid-gap: 0.25rem;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  width: 100%;
+  max-width: 500px;
+  height: 100%;
+  margin: auto;
+  padding: 1rem;
+  text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.75);
+  background-image: url(src/static/images/homev4.png);
+  background-size: contain;
+  background-position: center top 20%;
+  background-repeat: no-repeat; }
+  @media screen and (min-width: 0px) and (max-width: 600px) {
+    .home {
+      background-position: center top 5%; } }
+  .home--header {
+    justify-self: center;
+    font-family: bridechalk-script;
+    font-size: 3.5rem;
+    color: #d6d963;
+    letter-spacing: 2px;
+    -webkit-transform: rotate(-20deg);
+            transform: rotate(-20deg);
+    text-align: center;
+    line-height: 6vh;
+    height: 49vh;
+    margin-left: 5vw;
+    position: absolute;
+    left: 43%;
+    top: 25%; }
+    @media screen and (min-width: 0px) and (max-width: 600px) {
+      .home--header {
+        font-size: 3rem;
+        top: 19%;
+        left: 40%;
+        line-height: 7vh; } }
+
+.vows {
+  display: grid;
+  grid-gap: 0.25rem;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  width: 100%;
+  max-width: 500px;
+  height: 100%;
+  margin: auto;
+  padding: 1rem;
+  background-image: url(src/static/images/vows-editv5.png);
+  background-size: contain;
+  background-position: center top 90%;
+  background-repeat: no-repeat; }
+
+.vows a {
+  height: 100%;
+  width: 500px; }
+
+.card {
+  display: grid;
+  grid-template-areas: 'cardimg' 'cardhead' 'cardcontent';
+  grid-gap: 0.25rem;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  width: 100%;
+  max-width: 500px;
+  height: 100%;
+  margin: auto;
+  padding: 1rem;
+  text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.75);
+  /*@include breakpoint(mobile) {
+        padding: $size-root-full $size-root-full $size-root-full 3rem;
+    }*/ }
+  .card--head {
+    grid-area: cardhead;
+    font-family: jandascript;
+    font-size: 2.5rem;
+    color: #fad48b;
+    letter-spacing: 2px; }
+  .card--content {
+    grid-area: cardcontent;
+    line-height: 1.25rem;
+    color: #94c0cc;
+    font-family: bridechalk-sans; }
+
+.polaroid {
+  grid-area: cardimg;
+  margin: 0 auto 1rem auto;
+  padding: 1rem;
+  background: white;
+  -webkit-box-shadow: 0px 0px 5px 0px black;
+          box-shadow: 0px 0px 5px 0px black; }
+  .polaroid--image {
+    max-width: 100%;
+    max-height: 50vh; }
+    @media screen and (min-width: 0px) and (max-width: 600px) {
+      .polaroid--image {
+        max-width: 70vw; } }
+    .polaroid--image img {
+      width: 100%;
+      height: auto; }
+  .polaroid--text {
+    font-family: blackpen;
+    font-size: 2rem;
+    color: black;
+    text-shadow: none;
+    text-align: right;
+    padding: 1rem 1rem 0 1rem; }
+
+section:nth-of-type(2n+1) .card .polaroid {
+  -webkit-transform: rotate(2deg);
+          transform: rotate(2deg); }
+
+section:nth-of-type(2n+2) .card .polaroid {
+  -webkit-transform: rotate(-2deg);
+          transform: rotate(-2deg); }
+
+
+/*# sourceMappingURL=main.css.map?t=1599000791726*/

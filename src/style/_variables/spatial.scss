@@ -1,0 +1,37 @@
+    // max page width
+        $size-max:                  1200px;
+        $size-container-width:      600px;
+        $size-full-width:           100%;
+
+    // minimum touch sizing
+        $size-touch:                40px;
+
+    // border-radius
+        $size-border-radius:        .25rem;
+        $size-border-radius-full:   100%;
+        $size-border-radius-switch: 50px;
+
+    // #spacing (padding/margin)
+        $size-root-eighth:          .125rem;
+        $size-root-quarter:         .25rem;
+        $size-root-half:            .5rem;
+        $size-root-3quarter:        .75rem;
+        $size-root-full:            1rem;
+        $size-root-2x:              2rem;
+
+    // icon sizes
+        $size-icon-xlarge:          32px;
+        $size-icon-large:           24px;
+        $size-icon-medium:          16px;
+        $size-icon-small:           12px;
+
+    // #Typography Parameters
+        $base-font-size:            100%;
+        $base-font-family:          sans-serif;
+        $base-font-weight:          normal;
+        $base-font-weight-light:    300;
+        $base-font-weight-medium:   500;
+        $base-font-weight-heavy:    700;
+        $base-line-height:          1.25rem;
+        $base-bottom-margin:        0;
+        $base-font-size-small:      75%;

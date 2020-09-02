@@ -1,0 +1,102 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  /* background: url(../assets/wallpaper/Chalkboard-landscape.jpg); */
+  /* background:url(https://raw.github.com/mmoustafa/Chalkboard/master/img/bg.png); */
+  /* background-image: url('http://www.publicdomainpictures.net/pictures/110000/velka/chalkboard-or-blackboard.jpg'); */
+  
+  background-image: url(http://img04.deviantart.net/dd7c/i/2015/010/0/3/chalkboard_texture_mc2015_by_mattiamc-d8dbnac.jpg);
+  background-size: cover;
+  
+  color: #f4f4f0;
+}
+
+.wrapper {
+  display: flex;
+}
+
+.leaf{
+  position: fixed;
+  text-align: center;
+  width: 100%;
+  height: 20vh;
+  background-image: url(../assets/graphics/Peoni.png);
+  background-position: top center;
+}
+.title {
+  position: fixed;
+  text-align: center;
+  font-size: 7.6vh;
+  font-family: ChalkHandLetteringShaded;
+  width: 100%;
+  height: 20vh;
+  top: 1em;
+  /* background: url(../assets/graphics/chalk-banner.png);
+  background-size: 70%;
+  background-repeat: no-repeat;
+  background-position: center; */
+}
+
+.title h2{
+  margin: 10vh auto auto;
+  color: #d6d963;
+}
+
+.symbol {
+  font-family: Symbols;
+  color:#d6d963;
+  font-size: 20vh;
+}
+
+.symbol.under{
+  font-size: 22vh;
+}
+
+/* CONTENT */
+
+.container {
+  flex-basis: 100%;
+  max-height: 100vh;
+  overflow-y: scroll;
+  border: 1px solid gray;
+
+}
+.container.proximity {
+}
+
+li {
+  border-bottom: 1px solid white;
+  padding: 3rem;
+  font-size: 1.4rem;
+  color: rgba(255, 255, 255, 0.5);
+  /* background: lightgray; */
+  text-align: center;
+  scroll-snap-align: start;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+}
+
+h1, h3 {
+  font-family: JandaStyleScript;
+  font-size: 6vh;
+  color: #fad48b;
+}
+
+li p {
+  font-family: JandaStyleScript;
+  font-size: 3vh;
+  color: #94c0cc;
+  max-width: 50vw;
+  margin: 5vh auto;
+}
+
+
+/* IMAGE DETAILS*/
+
+li:nth-child(1) img {
+  height: 37vh;
+}

@@ -1,0 +1,50 @@
+//select
+@mixin select ($grow: 1, $shrink: 1, $flex: 100%, $height: $size-touch) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex: $grow $shrink $flex;
+    height: $height;
+    padding: $size-root-half calc(#{$size-root-full} * 2) $size-root-half $size-root-half;
+
+    &::-ms-expand {
+        display: none;
+    }
+
+    & > option > span {
+        justify-content: left;
+    }
+}
+
+// style
+@mixin selectStyle (
+    $type: primary,
+    $fg: $color-select-foreground,
+    $bg: $color-select-background,
+    $bc: $color-select-border,
+    $bs: 1px,
+    $bst: solid,
+    $br: $size-border-radius,
+    $ff: $base-font-family,
+    $fs: $size-root-full,
+    $fw: $base-font-weight-light
+) {
+
+    @if $type == primary {
+        // disable moz, safari & ie defaults
+        @include prefix(appearance, none, webkit ms);
+        color: $fg;
+        margin: 0;
+        background-color: $bg;
+        border: $bs $bst;
+        border-color: $bc;
+        border-radius: $br;
+        font-size: $fs;
+        cursor: pointer;
+
+        &:disabled {
+            opacity: $alpha-3quarter;
+            cursor: default;
+        }
+    }
+}

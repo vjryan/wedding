@@ -1,0 +1,50 @@
+// string replace function
+@function str-replace($string, $search, $replace: '') {
+  $index: str-index($string, $search);
+
+  @if $index {
+    // workaround for str-slice() bug when end-at is 0; fixed in scss 3.3.11
+    @if $index == 1 {
+      @return $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+    }
+
+    @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+  }
+
+  @return $string;
+}
+
+// requires icon map variable
+// @include svgBackground($iconmap:$mapUi, $path, $fill-color, $strokeColor, stroke-width, $repeat: no-repeat, $position: 50% 50%);
+
+@mixin svgBackground(
+    $iconmap: $mapUi,
+    $path: null,
+    $fill-color:'',
+    $strokeColor: '',
+    $stroke-width: null,
+    $repeat: no-repeat,
+    $position: 50% 50%
+) {
+        // replace hex color values
+        // DEPRECATION WARNING: #{} interpolation near operators will be simplified
+        // use unquote("#{$var}") in sass <=3.4 versions
+        $fill-color: str-replace(unquote("#{$fill-color}"), '#', '%23');
+        $strokeColor: str-replace(unquote("#{$strokeColor}"), '#', '%23');
+
+        $value: null;
+        $viewbox: null;
+        // $iconmap corresponds to available maps and applies appropriate viewbox dimensions and maping
+        @if $iconmap == $mapUi {
+            $viewbox: '0 0 20 20';
+            $value: map-get($mapUi, $path);
+        }
+        $base:  'data:image/svg+xml,';
+        $pre:   '%3Csvg xmlns="http://www.w3.org/2000/svg"';
+        $post:  '/%3E%3C/svg%3E';
+        background: url('#{$base}#{$pre} viewBox="#{$viewbox}"%3E %3Cpath #{$value} fill="#{$fill-color}" stroke="#{$strokeColor}" stroke-width="#{$stroke-width}" #{$post}');
+        background-repeat: $repeat;
+        background-position: $position;
+
+        // @warn "Unknown `#{$path}` in $iconmap-ui";
+}

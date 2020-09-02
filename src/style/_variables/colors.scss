@@ -1,0 +1,97 @@
+//colors
+    //  #2  alpha declarations
+        $alpha-full:        1;
+        $alpha-3quarter:    .75;
+        $alpha-half:        .5;
+        $alpha-quarter:     .25;
+        $alpha-eighth:      .125;
+        $alpha-none:        0;
+
+    //  #3  generic transparent (black and white variations)
+        $color-black:                   rgba(0, 0, 0, $alpha-full);
+        $color-black-3quarter:          rgba($color-black, $alpha-3quarter);
+        $color-black-half:              rgba($color-black, $alpha-half);
+        $color-black-quarter:           rgba($color-black, $alpha-quarter);
+        $color-black-eighth:            rgba($color-black, $alpha-eighth);
+        $color-white:                   rgba(255, 255, 255, $alpha-full);
+        $color-whiteHalf:               rgba($color-white, $alpha-half);
+        $color-transparent:             rgba($color-black, 0);
+
+    //  #5  branding
+        $color-primary:                 rgba(210, 23, 30, 1);
+        $color-primary-light:           tint($color-primary, 20%);
+        $color-primary-dark:            shade($color-primary, 20%);
+        $color-secondary:               rgba(210, 23, 30, 1);
+        $color-secondary-light:         tint($color-secondary, 20%);
+        $color-secondary-dark:          shade($color-secondary, 20%);
+        $color-tertiary:                rgba(210, 23, 30, 1);
+        $color-tertiary-light:          tint($color-tertiary, 20%);
+        $color-tertiary-dark:           shade($color-tertiary, 20%);
+
+    //  #6  text colors
+        $color-text:                    rgba(255, 255, 255, 1);
+        $color-text-light:              tint(rgba(0, 0, 0 ,1), 40%);
+        $color-text-dark:               shade(rgba(0, 0, 0 ,1), 40%);
+        $color-text-quiet:              $color-text;
+        $color-text-loud:               $color-text;
+
+    //  #8  user interface & backgrounds
+
+        //  8.1 header
+        $color-header:                  rgba(255, 255, 255, 1);
+        $color-header-text:             $color-text;
+        $color-header-icon:             $color-text;
+
+        //  8.2 footer
+        $color-footer:                  rgba(64, 64, 64, 1);
+
+        //  8.3 backgrounds
+        $color-background-primary:      rgba(0, 0, 0, 1);
+        $color-background-secondary:    rgba(75, 62, 142, 1);
+        $color-background-tertiary:     rgba(149, 70, 162, 1);
+        $color-background-container:    $color-background-primary;
+
+        $color-nav-text:                #fad48b;
+        $color-nav-icon:                #fad48b;
+        $color-nav-background:          #fad48b;
+
+        //  8.4 links
+        $color-link:                    $color-primary;
+        $color-link--hover:             tint($color-link, 40%);
+
+        //  8.5 buttons
+        $color-button-fg:               rgba(149, 70, 162, 1);
+        $color-button-bg:               rgba(255, 255, 255, 1);
+        $color-button-fg-h:             rgba(255, 255, 255, 1);
+        $color-button-bg-h:             rgba(149, 70, 162, 1);
+        $color-button-bg-f:             rgba(255, 255, 255, 1);
+
+        //  8.7 border
+        $color-border-top:              rgba(233, 234, 237, 1);
+        $color-border-side:             rgba(223, 224, 228, 1);
+        $color-border-bottom:           rgba(208, 209, 213, 1);
+
+        //  #9  form elements
+
+        //  9.1 select
+        $color-select-background-primary:       rgba(255, 255, 255, 1);
+        $color-select-background-primary-light: tint($color-select-background-primary, 20%);
+        $color-select-background-primary-dark:  shade($color-select-background-primary, 20%);
+        $color-select-foreground:               $color-text-dark;
+        $color-select-icon:                     rgba(118, 89, 170, 1);
+        $color-select-border:                   $color-select-background-primary;
+        $color-select-background:               $color-select-background-primary;
+
+        //  9.2 input
+        $color-input-foreground:    $color-text-dark;
+        $color-input-background:    rgba(255, 255, 255, 1);
+        $color-input-border:        rgba(255, 255, 255, 1);
+        $color-input-placeholder:   $color-text-dark;
+        $color-input-label:         $color-text;
+
+        //  9.3 checkbox and radio
+        $color-checkbox-background: $color-transparent;
+        $color-checkbox-check:      $color-text-light;
+        $color-checkbox-border:     $color-text-light;
+        $color-checkbox-label:      $color-text-light;
+

@@ -1,0 +1,11 @@
+
+@supports(scroll-snap-type: y mandatory){
+    .container {
+        -ms-scroll-snap-type: y mandatory;
+            scroll-snap-type: y mandatory;
+    }
+    .container.proximity {
+        -ms-scroll-snap-type: y proximity;
+            scroll-snap-type: y proximity;
+    }
+}
